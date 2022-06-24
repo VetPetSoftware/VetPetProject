@@ -1,3 +1,0 @@
-/* This is a js test
-to update the repository
-in github */
