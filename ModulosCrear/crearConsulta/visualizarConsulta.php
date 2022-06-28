@@ -1,16 +1,10 @@
 <?php
 
-    require_once 'conexion.php';
+require_once 'conexion.php';
 
-    $hisCli = $_GET['hisCli'];
-
-    $sentencia = "SELECT * FROM pacientes WHERE hisCli='".$hisCli."' ";
-    $registro = $mysqli->query($sentencia) or die (mysqli_error($mysqli));
-    $dato=$registro->fetch_assoc();
-
-    $query = "SELECT * FROM propietarios WHERE hisCli='".$hisCli."' ";
-    $register = $mysqli->query($query) or die (mysqli_error($mysqli));
-    $data=$register->fetch_assoc();
+$sentencia = "SELECT * FROM pacientes P JOIN consulta C ON P.hisCli = C.hisCli";
+$registros = $mysqli->query($sentencia) or die (mysqli_error($mysqli));
+$dato=$registros->fetch_assoc();
 
 ?>
 
@@ -54,12 +48,12 @@
 
 <div id="element-to-print">
 
-<!--------------"VISUALIZAR PROPIETARIO" ----------------------------->
+<!--------------3. POP UP "VISUALIZAR PACIENTE" - 3.1. CONTENEDOR MASCOTA----------------------------->
 
                             <div class="flex alinear-der">
                                                             
                                         <form action="" method="POST">
-                                                <a href="buscarPropietario.php">
+                                                <a href="buscarConsulta.php">
                                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-x" id="close-activar-pac" width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="#0D4251" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                                                 <circle cx="12" cy="12" r="9" />
@@ -75,7 +69,7 @@
                                            
                                     <div class="fecha-vis-pac">
                                             <label>Fecha:</label>
-                                            <input class="input-date" type="date" value="<?php $fecha = new DateTime('now', new DateTimeZone('America/Bogota'));echo date('Y-m-d');?>" readonly>
+                                            <input class="input-date" type="date" value="<?php date_default_timezone_set("America/Bogota");echo date('Y-m-d');?>" readonly>
                                     </div>        
                                         
                             </form> 
@@ -93,14 +87,72 @@
 
                             </div>
 
+                            <div class="paciente-vis-pac">
 
-<!----------"VISUALIZAR PROPIETARIO - CONTENEDOR PROPIETARIO"---------->
+                                    <div class="datos-paciente-vis-pac">
+
+                                        <h2>Datos Paciente</h2>
+
+                                    </div>
+
+
+                                    <form class="formulario1">
+
+                                            <div class="contenedor-infopaciente-vis-pac">   
+
+                                                        <div class="contenedor-imagen flex">
+
+                                                            <figure >
+                                                                <img  class="fotoMascota" src="data:image/jpg;base64,<?php echo base64_encode($dato['fotPac']); ?>" readonly>
+                                                            </figure>
+
+                                                        </div>
+
+                                                        <div class="campo1">
+                                                            <label>Nombre:</label>
+                                                            <input class="input-text" type="text" name="visNombre" value="<?php echo $dato['nomPac'];  ?>" readonly>
+                                                        </div>
+
+                                                        <div class="campo1">
+                                                            <label>Especie:</label>
+                                                            <input class="input-text" type="text" name="visEspecie" value="<?php echo $dato['espPac'];  ?>" readonly>
+                                                        </div>
+                                                        <div class="campo1">
+                                                            <label>Raza:</label>
+                                                            <input class="input-text" type="text" name="visRaza" value="<?php echo $dato['razPac'];  ?>" readonly>
+                                                        </div>
+                                                        <div class="campo1">
+                                                            <label>Sexo:</label>
+                                                            <input class="input-text" type="text" name="sexo" value="<?php echo $dato['sexPac'];  ?>" readonly>
+                                                        </div>
+                                                        <div class="campo1">
+                                                            <label>Fecha de Nacimiento:</label>
+                                                            <input class="input-text" type="date" name="visNacimiento" value="<?php echo $dato['fecNam'];  ?>" readonly>
+                                                        </div>
+                                                        <div class="campo1">
+                                                            <label>Color:</label>
+                                                            <input class="input-text" type="text" name="visColor" value="<?php echo $dato['colPac'];  ?>" readonly>
+                                                        </div>
+                                                        <div class="campo1">
+                                                            <label>Última atención:</label>
+                                                            <input class="input-text" type="date" name="visUltAtencion" value="<?php echo $dato['ultAte'];  ?>" readonly>
+                                                        </div>
+
+                                                
+                                            </div> <!--Contenedor-infopaciente--> 
+                  
+                                    </form>
+
+                            </div>
+                   
+
+<!----------3. POP UP "VISUALIZAR PACIENTE - 3.2. CONTENEDOR PROPIETARIO"---------->
 
                             <div class="propietario-vis-pac">
 
 
                                         <div class="datos-propietario-vis-pac">
-                                            <h2>Datos Propietario</h2>
+                                            <h2>Motivo Consulta</h2>
                                         </div>
 
                                                 <form class="formulario2">
@@ -109,110 +161,32 @@
                                                         <div class="contenedor-infopropietario-vis-pac">  
 
                                                             <div class="campo2">
-                                                                <label>Nombres:</label>
-                                                                <input class="input-text" type="text" placeholder="" value="<?php echo $data['nomPro'];  ?>" readonly>
+                                                                <label>Triage:</label>
+                                                                <input class="input-text" type="text" name="triage" value="<?php echo $dato['triage'];  ?>" readonly>
                                                             </div>
 
                                                             <div class="campo2">
-                                                                <label>Apellidos:</label>
-                                                                <input class="input-text" type="text" placeholder="" value="<?php echo $data['apePro'];  ?>" readonly>
+                                                                <label>Última Consulta:</label>
+                                                                <input class="input-text" type="date" name="ultima" value="<?php echo $dato['ultCon'];  ?>" readonly>
                                                             </div>
 
                                                             <div class="campo2">
-                                                                <label>Tipo de documento:</label>
-                                                                <input class="input-text" type="text" placeholder=" "value="<?php echo $data['tipDoc'];  ?>" readonly>
+                                                                <label>Descripción:</label>
+                                                                <textarea class="input-text descripcion" rows="1" cols="5" name="descripcion" value="<?php echo $dato['descrip'];  ?>" readonly></textarea>
                                                             </div>
 
                                                             <div class="campo2">
-                                                                <label>Número de documento:</label>
-                                                                <input class="input-text" type="text" placeholder="" value="<?php echo $data['docPro'];  ?>" readonly>
+                                                                <label>Antecedentes Enfermedad Actual:</label>
+                                                                <textarea class="input-text antecedentes" rows="1" cols="5" name="antecedentes" value="<?php echo $dato['antEnf'];  ?>" readonly></textarea>
                                                             </div>
 
                                                             <div class="campo2">
-                                                                <label>Dirección:</label>
-                                                                <input class="input-text" type="text" placeholder="" value="<?php echo $data['dirPro'];  ?>" readonly>
+                                                                <label>Cirugías Previas:</label>
+                                                                <textarea class="input-text cirugias" rows="1" cols="5" name="cirugiasPrevias" value="<?php echo $dato['segCli'];  ?>" readonly></textarea>
                                                             </div>
 
-                                                            <div class="campo2">
-                                                                <label>Municipio:</label>
-                                                                <input class="input-text" type="text" placeholder="" value="<?php echo $data['munPro'];  ?>" readonly>
-                                                            </div>
-
-                                                            <div class="campo2">
-                                                                <label>Celular:</label>
-                                                                <input class="input-text" type="text" placeholder="" value="<?php echo $data['celPro'];  ?>" readonly>
-                                                            </div>
-
-                                                            <div class="campo2">
-                                                                <label>E-mail:</label>
-                                                                <input class="input-text" type="text" placeholder="" value="<?php echo $data['emaPro'];  ?>" readonly>
-                                                            </div>
-                                                            
                                                         </div> <!--contenedor-infopropietario-->
                                                 </form>
-
-                            </div>
-
-<!----------"VISUALIZAR PROPIETARIO - CONTENEDOR PACIENTE"---------->
-
-                            <div class="paciente-vis-pac">
-
-                            <div class="datos-paciente-vis-pac">
-
-                                <h2>Datos Paciente</h2>
-
-                            </div>
-
-
-                            <form class="formulario1">
-
-                                    <div class="contenedor-infopaciente-vis-pac">   
-
-                                                <div class="contenedor-imagen flex">
-
-                                                        <figure >
-                                                            <img  class="fotoMascota" src="data:image/jpg;base64,<?php echo base64_encode($dato['fotPac']); ?>" readonly>
-                                                        </figure>
-
-                                                </div>
-
-                                                <div class="campo1">
-                                                    <label>Nombre:</label>
-                                                    <input class="input-text" type="text" name="visNombre" value="<?php echo $dato['nomPac'];  ?>" readonly>
-                                                </div>
-
-                                                <div class="campo1">
-                                                    <label>Especie:</label>
-                                                    <input class="input-text" type="text" name="visEspecie" value="<?php echo $dato['espPac'];  ?>" readonly>
-                                                </div>
-                                                <div class="campo1">
-                                                    <label>Raza:</label>
-                                                    <input class="input-text" type="text" name="visRaza" value="<?php echo $dato['razPac'];  ?>" readonly>
-                                                </div>
-                                                <div class="campo1">
-                                                    <label>Sexo:</label>
-                                                    <input class="input-text" type="text" name="sexo" value="<?php echo $dato['sexPac'];  ?>" readonly>
-                                                </div>
-                                                <div class="campo1">
-                                                    <label>Fecha de Nacimiento:</label>
-                                                    <input class="input-text" type="date" name="visNacimiento" value="<?php echo $dato['fecNam'];  ?>" readonly>
-                                                </div>
-                                                <div class="campo1">
-                                                    <label>Color:</label>
-                                                    <input class="input-text" type="text" name="visColor" value="<?php echo $dato['colPac'];  ?>" readonly>
-                                                </div>
-                                                <div class="campo1">
-                                                    <label>Última atención:</label>
-                                                    <input class="input-text" type="date" name="visUltAtencion" value="<?php echo $dato['ultAte'];  ?>" readonly>
-                                                </div>
-
-                                        
-                                    </div> <!--Contenedor-infopaciente--> 
-
-                            </form>
-
-                            </div>
-
 
                                         <div class="contenedor-logo-vis-pac" id="element-to-print">
                                             <img src="img/logohospital.png" alt="" class="imagen1"/>
@@ -242,7 +216,7 @@
                                     
                                         </div>
 
-                                  
+                        </div>           
 
 
 </div>
