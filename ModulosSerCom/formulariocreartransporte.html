@@ -1,46 +1,30 @@
-<?php
-
-require_once 'conexion.php';
-
-$sentencia = "SELECT * 
-                    FROM consulta C 
-                    INNER JOIN pacientes P  ON  C.hisCli = P.hisCli 
-                    INNER JOIN propietarios T ON  P.hisCli = T.hisCli";
-$registros = $mysqli->query($sentencia) or die (mysqli_error($mysqli));
-$dato=$registros->fetch_assoc();
-
-/*$query = "SELECT * FROM propietarios O JOIN pacientes P ON O.hisCli = P.hisCli";
-$register = $mysqli->query($query) or die (mysqli_error($mysqli));
-$data=$register->fetch_assoc();*/
-
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VPS - Módulo Consulta</title>
+    <title>VPS - Módulo Transporte</title>
     
     <link rel="preload" href="css/normalize.css" as="style"><link rel="stylesheet" href="css/normalize.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
-    <link rel="preload" href="css/crearconsulta.css" as="style">
-    <link rel="stylesheet" href="css/crearconsulta.css">
+    <link rel="preload" href="css/creartransporte.css" as="style">
+    <link rel="stylesheet" href="css/creartransporte.css">
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="js/main.js"></script>
 
 </head>
+
 <body class="agrupar">
     <main>
 
         <section>
                <div class="seccion-buscar">
                     
-                    <form class="buscador" action="" method="POST">
+                    <form class="buscador">
 
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -60,26 +44,26 @@ $data=$register->fetch_assoc();*/
                     </form>   
                     
 
-                        <form class="fechayhora" action="" method="POST">
+                        <form class="fechayhora">
                             <div class="contenedorfyh">
                                 <div class="fecha">
                                         <label>Fecha:</label>
-                                        <input class="input-date" type="date" value="<?php date_default_timezone_set("America/Bogota");echo date('Y-m-d');?>" readonly>
+                                        <input class="input-date" type="date" placeholder="">
                                 </div>
                                 <div class="hora">
                                         <label>Hora:</label>
-                                        <input class="input-date" type="time" value="<?php date_default_timezone_set("America/Bogota"); echo date('H:i')?>" readonly>
+                                        <input class="input-time" type="time" placeholder="">
                                 </div>
                             </div>
                         </form>       
              </div>
 
-                <div class="contenedorhc">
+               <div class="contenedorServicio">
                     
-                    <form class="historiaclinica" action="" method="POST">
+                    <form class="numeroServicio">
                             <div>
-                                <label>Historia Clínica</label><br>
-                                <input type="" name="visHistoria" value="<?php echo $dato['hisCli'];  ?>" readonly>
+                                <label>n° de servicio</label><br>
+                                <input type="" name="">   
                             </div>
                     </form>
 
@@ -87,20 +71,19 @@ $data=$register->fetch_assoc();*/
 
         </section>
 
-
-        <section>
+                <section>
 
             <div class="paciente">
 
                     <div class="datos-paciente">
 
-                        <h2>Datos Paciente</h2>
+                        <h2>Datos Mascota</h2>
 
                         <div class="iconos-paciente flex alinear-derecha">
 
                                 <form action="" method="POST">
-                                    <a href="../ModulosBuscar/buscarPaciente/visualizarPaciente.php?hisCli=<?php echo $dato['hisCli'];?>">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-eye-pac" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#0D4251" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <a href="#">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-eye-pac" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#432B8D" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                               <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                               <circle cx="12" cy="12" r="2" />
                                               <path d="M22 12c-2.667 4.667 -6 7 -10 7s-7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7" />
@@ -108,9 +91,9 @@ $data=$register->fetch_assoc();*/
                                     </a>
                                 </form>
 
-                                <form action="" method="POST">
-                                    <a href="../ModulosBUscar/buscarPaciente/editarPaciente.php?hisCli=<?php echo $dato['hisCli'];?>">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil-pac" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#0D4251" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <form>
+                                    <a href="#" action="" method="POST">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil-pac" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#432B8D" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                               <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                               <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
                                               <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
@@ -119,8 +102,8 @@ $data=$register->fetch_assoc();*/
                                 </form>
 
                                 <form action="" method="POST">
-                                    <a href="../ModulosBuscar/buscarPaciente/agregarPaciente.php?hisCli=<?php echo $dato['hisCli'];?>">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-plus-pac" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#0D4251" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <a href="#">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-plus-pac" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#432B8D" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                               <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                               <circle cx="12" cy="12" r="9" />
                                               <line x1="9" y1="12" x2="15" y2="12" />
@@ -138,41 +121,75 @@ $data=$register->fetch_assoc();*/
                                     <div class="contenedor-infopaciente">   
 
                                         <div class="contenedor-imagen flex">
-                                            <figure >
-                                                    <img  class="fotoMascota" src="data:image/jpg;base64,<?php echo base64_encode($dato['fotPac']); ?>" readonly>
-                                            </figure>
+
+                                                <form action="" method="POST">
+                                                        <a href="#">
+                                                           <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-camera-plus" width="60" height="60" viewBox="0 0 24 24" stroke-width="1.5" stroke="#6f32be" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                              <circle cx="12" cy="13" r="3" />
+                                                              <path d="M5 7h2a2 2 0 0 0 2 -2a1 1 0 0 1 1 -1h2m9 7v7a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-9a2 2 0 0 1 2 -2" />
+                                                              <line x1="15" y1="6" x2="21" y2="6" />
+                                                              <line x1="18" y1="3" x2="18" y2="9" />
+                                                            </svg>
+                                                        </a>
+                                                </form>
+                                                <figure>
+                                                    <!--<input type="file" id="myfile" name="myfile">-->
+                                                    <img type src="" alt="" >
+                                                </figure>
                                         </div>
+
+                            <form  action="" method="POST">        
 
                                         <div class="campo1">
                                             <label>Nombre:</label>
-                                            <input class="input-text" type="text" name="visNombre" value="<?php echo $dato['nomPac'];  ?>">
+                                            <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)" required>
                                         </div>
 
                                         <div class="campo1">
                                             <label>Especie:</label>
-                                            <input class="input-text" type="text" name="visEspecie" value="<?php echo $dato['espPac'];  ?>">
-                                        </div>
-                                        <div class="campo1">
-                                            <label>Raza:</label>
-                                            <input class="input-text" type="text" name="visRaza" value="<?php echo $dato['razPac'];  ?>">
-                                        </div>
-                                        <div class="campo1">
-                                            <label>Sexo:</label>
-                                            <input class="input-text" type="text" name="sexo" value="<?php echo $dato['sexPac'];  ?>">
-                                        </div>
-                                        <div class="campo1">
-                                            <label>Fecha de Nacimiento:</label>
-                                            <input class="input-text" type="date" name="visNacimiento" value="<?php echo $dato['fecNam'];  ?>">
-                                        </div>
-                                        <div class="campo1">
-                                            <label>Color:</label>
-                                            <input class="input-text" type="text" name="visColor" value="<?php echo $dato['colPac'];  ?>">
+                                            <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)" required>
                                         </div>
 
+                                        <div class="campo1">
+                                            <label>Raza:</label>
+                                            <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)" required>
+                                        </div>
+
+                                        <div class="campo1">
+                                            <label>Sexo:</label>
+                                            <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)" required>
+                                        </div>
+
+                                        <div class="campo1">
+                                            <label>Fecha de Nacimiento:</label>
+                                            <input class="input-text" type="date" placeholder="" onFocus="vaciar(this)" required>
+                                        </div>
+
+                                        <div class="campo1">
+                                            <label>Color:</label>
+                                            <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)" required>
+                                        </div>
                                 
                                     </div> <!--contenedor-infopaciente--> 
+
+                                    <div class="contenedor-btns0 flex">
+                                            <form action="" method="POST">
+                                                <div class="btn1">
+                                                    <button type="submit" onclick="vaciar()">Registrar</button>
+                                                </div>
+                                            </form>
+
+                                            <form action="" method="POST">
+                                                <div class="btn4">
+                                                    <button type="submit">Cancelar</button>
+                                                </div>
+                                            </form>
+                                    </div>
   
                         </form>
+
+                    </form>
                         
             </div>
 
@@ -184,9 +201,9 @@ $data=$register->fetch_assoc();*/
 
                          <div class="iconos-propietario flex alinear-derecha">
 
-                            <form action="" method="POST">
+                            <form>
                                 <a href="#">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-eye-pro" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#0D4251" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-eye-pro" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#432B8D" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                           <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                           <circle cx="12" cy="12" r="2" />
                                           <path d="M22 12c-2.667 4.667 -6 7 -10 7s-7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7" />
@@ -194,9 +211,9 @@ $data=$register->fetch_assoc();*/
                                 </a>
                             </form>
 
-                            <form action="" method="POST">
+                            <form>
                                 <a href="#">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil-pro" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#0D4251" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil-pro" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#432B8D" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                           <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                           <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
                                           <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
@@ -208,201 +225,239 @@ $data=$register->fetch_assoc();*/
                 </div>
         
 
-                            <form class="formulario2">
+                            <form class="formulario2" action="" method="POST">
 
 
                                         <div class="contenedor-infopropietario">  
 
                                             <div class="campo2">
                                                 <label>Nombres:</label>
-                                                <input class="input-text" type="text" placeholder="" value="<?php echo $dato['nomPro'];  ?>" readonly>
+                                                <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)">
                                             </div>
 
                                             <div class="campo2">
                                                 <label>Apellidos:</label>
-                                                <input class="input-text" type="text" placeholder="" value="<?php echo $dato['apePro'];  ?>" readonly>
+                                                <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)">
                                             </div>
 
                                             <div class="campo2">
                                                 <label>Tipo de documento:</label>
-                                                <input class="input-text" type="text" placeholder=" "value="<?php echo $dato['tipDoc'];  ?>" readonly>
+                                                <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)">
                                             </div>
 
                                             <div class="campo2">
                                                 <label>Número de documento:</label>
-                                                <input class="input-text" type="text" placeholder="" value="<?php echo $dato['docPro'];  ?>" readonly>
+                                                <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)">
                                             </div>
 
                                             <div class="campo2">
                                                 <label>Dirección:</label>
-                                                <input class="input-text" type="text" placeholder="" value="<?php echo $dato['dirPro'];  ?>" readonly>
+                                                <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)">
                                             </div>
 
                                             <div class="campo2">
                                                 <label>Municipio:</label>
-                                                <input class="input-text" type="text" placeholder="" value="<?php echo $dato['munPro'];  ?>" readonly>
+                                                <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)">
                                             </div>
 
                                             <div class="campo2">
                                                 <label>Celular:</label>
-                                                <input class="input-text" type="text" placeholder="" value="<?php echo $dato['celPro'];  ?>" readonly>
+                                                <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)">
                                             </div>
 
                                             <div class="campo2">
                                                 <label>E-mail:</label>
-                                                <input class="input-text" type="text" placeholder="" value="<?php echo $dato['emaPro'];  ?>" readonly>
+                                                <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)">
                                             </div>
                                             
                                             
                                         </div> <!--contenedor-infopropietario-->
+
+                                        <div class="contenedor-btns0 flex">
+                                            <form action="" method="POST">
+                                                <div class="btn1">
+                                                    <button type="submit" onclick="vaciar(control)">Registrar</button>
+                                                </div>
+                                            </form>
+
+                                            <form action="" method="POST">
+                                                <div class="btn4">
+                                                    <button type="submit">Cancelar</button>
+                                                </div>
+                                            </form>
+                                    </div>
+  
                             </form>
 
             </div>
 
-    </section>
+             </section>
 
     <section>
 
-            <div class="motivo-consulta">
+         <div class="info-cirugia">
 
-                  <div class="titulo-motivo">
-                    
-                        <h2>Motivo Consulta</h2>
+                <div class="titulo-hospedaje">
 
-                  </div>
+                    <h2>Transporte</h2>
                 
-                 <form class="formulario3">
+                </div>
 
-                            
-                            <div class="contenedor-motivoconsulta"> 
+                 <form class="formulario3" action="" method="POST">
+
+
+                            <div class="contenedor-hospedaje"> 
+
+                                    <div class="contenedor-fyhtipo">
+                                        
+                                         <div class="campo3">
+                                             <label class="placaVeh">N° agendamiento:</label><br>
+                                             <input class="input-text"></input>
+                                        </div>
+
+                                        <div class="campo3">
+                                            <label class="frecoleccion">Fecha de recolección:</label><br>
+                                            <input class="input-text" type="date" placeholder="">
+                                        </div>
+
+                                        <div class="campo3">
+                                             <label class="hrecoleccion">Hora de recolección:</label><br>
+                                             <input class="input-text" type="time" placeholder="">
+                                        </div>
+                                        
+                                    </div> <!--contenedor-fyhtipo--> 
+
+                                    <div class="contenedor-fyhtipo">
+                                        
+                                         <div class="campo3">
+                                             <label class="nomConductor">Conductor:</label><br>
+                                             <input class="input-text"></input>
+                                        </div>
+
+                                        <div class="campo3">
+                                            <label class="fEntrega">Fecha de entrega:</label><br>
+                                            <input class="input-text" type="date" placeholder="">
+                                        </div>
+
+                                        <div class="campo3">
+                                             <label class="hEntrega">Hora de entrega:</label><br>
+                                             <input class="input-text" type="time" placeholder="">
+                                        </div>
+                                        
+                                    </div> <!--contenedor-fyhtipo--> 
+
+                                    <div class="contenedor-fyhtipo">
+                                        
+                                         <div class="campo3">
+                                             <label class="dRecoleccion">Dirección recolección:</label><br>
+                                             <input class="input-text"></input>
+                                        </div>
+
+                                        <div class="campo3">
+                                             <label class="dEntrega">Dirección entrega:</label><br>
+                                             <input class="input-text"></input>
+                                        </div>
+                                        
+                                    </div> <!--contenedor-fyhtipo--> 
 
                                     <div class="campo3">
-                                        <label>Triage:</label><br>
-                                            <select class="selector" name="triage" id="triage">
-                                                <option value = "-1" disabled="disabled">Seleccionar triage</option>
-
-                                                <?php
-                                                        require_once 'conexion.php';
-
-                                                        $sentencia = "SELECT * FROM triage ORDER BY lisTria";
-                                                        $registro = $mysqli->query($sentencia) or die (mysqli_error($mysqli));
-                                                        
-                                                        while($triage = mysqli_fetch_array($registro)) { ?>
-                                                        <option value="<?php echo $triage["idTriage"]; ?>"><?php echo $triage["lisTria"]; ?></option>
-                                                        <?php }
-                                                ?>      
-                                            </select>
+                                         <label>Observaciones recolección:</label><br>
+                                         <textarea class="input-text oRecoleccion" onFocus="vaciar(this)"></textarea>
                                     </div>
 
                                     <div class="campo3">
-                                         <label>Última consulta:</label><br>
-                                         <input class="input-text" type="date" name="ultima" value="<?php echo $dato['ultCon'];  ?>">
+                                        <label>Observaciones entrega</label><br>
+                                        <textarea class="input-text oEntrega" onFocus="vaciar(this)"></textarea>
+                                    </div>
+
+                                     <div class="campo3">
+                                        <label>Pertenencias:</label><br>
+                                        <textarea class="input-text pertenencias" onFocus="vaciar(this)"></textarea>
                                     </div>
 
                                     <div class="campo3">
-                                         <label>Descripción:</label><br>
-                                         <textarea class="descripcion" rows="1" cols="5" name="descripcion" value="<?php echo $dato['descrip'];  ?>"></textarea>
+                                        <label>Cuidados especiales:</label><br>
+                                        <textarea class="input-text cEspeciales" onFocus="vaciar(this)"></textarea>
                                     </div>
-
-                                    <div class="campo3">
-                                         <label>Antecedentes enfermedad actual:</label><br>
-                                         <textarea class="input-text antecedentes" rows="1" cols="5" name="antecedentes" value="<?php echo $dato['antEnf'];  ?>"></textarea>
-                                    </div>
-
-                                    <div class="campo3">
-                                        <label>Cirugías previas:</label><br>
-                                        <textarea class="input-text cirugias" rows="1" cols="5" name="cirugiasPrevias" value="<?php echo $dato['segCli'];  ?>"></textarea>
-                                    </div>
-
-                            </div> <!--contenedor-motivoconsulta--> 
 
                                     <div class="contenedor-btns">
-                                        <form action="" method="POST">
+
+                                        <form>
                                             <div class="btn1">
-                                                <button type="submit">Registrar</button>
+                                                <button type="submit" onclick="vaciar()">Registrar</button>
                                             </div>
                                         </form>
 
-                                        <form action="" method="POST">
+                                        <form>
                                             <div class="btn4">
                                                 <button type="submit">Cancelar</button>
                                             </div>
                                         </form>
                                     </div>
-  
+
+                            </div> <!--contenedor-hospedaje-->           
                 </form>
             </div>
     </section>
 
-        <section>
+    <section>
             <div class="wrap">
                 <ul class="tabs">
-                    <li><a href="#tab1">Constantes fisiológicas</a></li>
-                    <li><a href="#tab2">Estado físico</a></li>
-                    <li><a href="#tab3">Vacunación</a></li>
-                    <li><a href="#tab4">Desparasitación</a></li>
-                    <li><a href="#tab5">Estado <br> reproductivo</a></li>
+                    <li><a href="#tab1">Vehículo</a></li>
+                    <li><a href="#tab2">Conductor</a></li>
                 </ul>
             </div>
+    
+        <div class="secciones">
 
-            <div class="secciones">
-                
                 <section id="tab1">
 
+                    <div class="campo4">
+                            <label>ID:</label><br>
+                            <input class="input-text" type="num" placeholder="" onclick="vaciar()">
+                    </div>
+
                      <div class="campo4">
-                            <label>Peso:</label><br>
-                            <input class="input-text" type="num" placeholder="Peso en kg">
+                            <label>Placa Vehículo:</label><br>
+                            <input class="input-text" type="num" placeholder=""onclick="vaciar()">
                     </div>
 
                     <div class="campo4">
-                            <label>Temperatura:</label><br>
-                            <input class="input-text" type="num" placeholder="Temperatura en °C">
+                            <label>N° Tarjeta de Propiedad:</label><br>
+                            <input class="input-text" type="num" placeholder="" onclick="vaciar()">
                     </div>
 
                     <div class="campo4">
-                            <label>Llenado Capilar:</label><br>
-                            <input class="input-text" type="num" placeholder="Segundos">
+                            <label>Marca Vehículo:</label><br>
+                            <input class="input-text" type="num" placeholder="" onclick="vaciar()">
                     </div>
 
                     <div class="campo4">
-                            <label>Frecuencia cardiaca:</label><br>
-                            <input class="input-text" type="num" placeholder="Latidos por minuto">
+                            <label>Modelo Vehículo:</label><br>
+                            <input class="input-text" type="num" placeholder="" onclick="vaciar()">
                     </div>
 
                     <div class="campo4">
-                            <label>Frecuencia respiratoria:</label><br>
-                            <input class="input-text" type="num" placeholder="Respiraciones/minuto">
+                            <label>Clase Vehículo:</label><br>
+                            <input class="input-text" type="num" placeholder="" onclick="vaciar()">
                     </div>
 
                     <div class="campo4">
-                            <label>Color mucosas:</label><br>
-                            <select class="selector" name="colMucosas" id="colMucosas">
-                                                <option value = "-1" disabled="disabled">Seleccionar triage</option>
-
-                                                <?php
-                                                        require_once 'conexion.php';
-
-                                                        $sentencia = "SELECT * FROM colormucosas ORDER BY colMuc";
-                                                        $registro = $mysqli->query($sentencia) or die (mysqli_error($mysqli));
-                                                        
-                                                        while($colMucosas = mysqli_fetch_array($registro)) { ?>
-                                                        <option value="<?php echo $colMucosas["idColMuc"]; ?>"><?php echo $colMucosas["colMuc"]; ?></option>
-                                                        <?php }
-                                                ?>      
-                            </select>
+                            <label>SOAT:</label><br>
+                            <input class="input-text" type="text" placeholder="" onclick="vaciar()">
                     </div>
 
                     <div class="campo4">
-                            <label>Turgencia piel:</label><br>
-                            <input class="input-text" type="text" placeholder="">
+                            <label>F.V. Revisión Tecnomecánica:</label><br>
+                            <input class="input-date" type="text" placeholder="" onclick="vaciar()">
                     </div><br>
 
                     <div class="contenedor-btntabs1">
-                        <form action="" method="POST">
-                            <div class="btn3">
-                                    <button type="submit">Guardar</button>
-                            </div>
-                        </form>
+                            <form>
+                                <div class="btn3">
+                                        <button type="submit">Guardar</button>
+                                </div>
+                            </form>
                     </div>
                     
                 </section>
@@ -410,220 +465,55 @@ $data=$register->fetch_assoc();*/
                 <section id="tab2">
 
                      <div class="campo4">
-                            <label>Estilo de vida:</label><br>
-                            <select class="selector" name="espVid" id="espVid">
-                                        <option value = "-1" disabled="disabled">Seleccionar estilo</option>
-
-                                        <?php
-                                                require_once 'conexion.php';
-
-                                                $sentencia = "SELECT * FROM estilovida ORDER BY estVid";
-                                                $registro = $mysqli->query($sentencia) or die (mysqli_error($mysqli));
-                                                
-                                                while($estilo = mysqli_fetch_array($registro)) { ?>
-                                                <option value="<?php echo $estilo["idEVida"]; ?>"><?php echo $estilo["estVid"]; ?></option>
-                                                <?php }
-                                        ?>      
-                            </select>
+                            <label>Nombre:</label><br>
+                            <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)">
                     </div>
 
                     <div class="campo4">
-                            <label>Dieta:</label><br>
-                            <select class="selector" name="dieta" id="dieta">
-                                        <option value = "-1" disabled="disabled">Seleccionar dieta</option>
-
-                                        <?php
-                                                require_once 'conexion.php';
-
-                                                $sentencia = "SELECT * FROM dieta ORDER BY lisDie";
-                                                $registro = $mysqli->query($sentencia) or die (mysqli_error($mysqli));
-                                                
-                                                while($dieta = mysqli_fetch_array($registro)) { ?>
-                                                <option value="<?php echo $dieta["idDieta"]; ?>"><?php echo $dieta["lisDie"]; ?></option>
-                                                <?php }
-                                        ?>      
-                            </select>
+                            <label>Fecha de nacimiento:</label><br>
+                            <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)">
                     </div>
 
                     <div class="campo4">
-                            <label>Hábitad:</label><br>
-                            <select class="selector" name="habitad" id="habitad">
-                                        <option value = "-1" disabled="disabled">Seleccionar hábitad</option>
-
-                                        <?php
-                                                require_once 'conexion.php';
-
-                                                $sentencia = "SELECT * FROM habitad ORDER BY lisHab";
-                                                $registro = $mysqli->query($sentencia) or die (mysqli_error($mysqli));
-                                                
-                                                while($habitad = mysqli_fetch_array($registro)) { ?>
-                                                <option value="<?php echo $habitad["idHab"]; ?>"><?php echo $habitad["lisHab"]; ?></option>
-                                                <?php }
-                                        ?>      
-                            </select>
+                            <label>Tipo de Sangre:</label><br>
+                            <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)">
                     </div>
 
                     <div class="campo4">
-                            <label>Actitud:</label><br>
-                            <select class="selector" name="actitud" id="actitud">
-                                                <option value = "-1" disabled="disabled">Seleccionar actitud</option>
-
-                                                <?php
-                                                        require_once 'conexion.php';
-
-                                                        $sentencia = "SELECT * FROM actitud ORDER BY lisAct";
-                                                        $registro = $mysqli->query($sentencia) or die (mysqli_error($mysqli));
-                                                        
-                                                        while($actitud = mysqli_fetch_array($registro)) { ?>
-                                                        <option value="<?php echo $actitud["idAct"]; ?>"><?php echo $actitud["lisAct"]; ?></option>
-                                                        <?php }
-                                                ?>      
-                            </select>
+                            <label>RH:</label><br>
+                            <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)">
                     </div>
-
-                    <div class="campo4">
-                            <label>Condición Corporal:</label><br>
-                            <select class="selector" name="conCorporal" id="conCorporal">
-                                                <option value = "-1" disabled="disabled">Seleccionar condición</option>
-
-                                                <?php
-                                                        require_once 'conexion.php';
-
-                                                        $sentencia = "SELECT * FROM concorporal";
-                                                        $registro = $mysqli->query($sentencia) or die (mysqli_error($mysqli));
-                                                        
-                                                        while($conCorporal = mysqli_fetch_array($registro)) { ?>
-                                                        <option value="<?php echo $conCorporal["idConCorp"]; ?>"><?php echo $conCorporal["conCorp"]; ?></option>
-                                                        <?php }
-                                                ?>      
-                            </select>
-                    </div><br>
-
-                    <div class="contenedor-btntabs2">
-                        <div class="btn3">
-                            <form action="" method="POST">
-                                <button type="submit">Guardar</button>
-                            </form>
-                        </div>
-                    </div>
-
-                </section>
-
-                <section id="tab3">
-
-                    <div class="campo4">
-                            <label>Tipo de vacunación:</label><br>
-                            <select class="selector" name="tipoVacuna" id="tipoVacuna">
-                                                <option value = "-1" disabled="disabled">Seleccionar tipo vacuna</option>
-
-                                                <?php
-                                                        require_once 'conexion.php';
-
-                                                        $sentencia = "SELECT * FROM tipovacuna";
-                                                        $registro = $mysqli->query($sentencia) or die (mysqli_error($mysqli));
-                                                        
-                                                        while($tipoVacuna = mysqli_fetch_array($registro)) { ?>
-                                                        <option value="<?php echo $tipoVacuna["idtipVac"]; ?>"><?php echo $tipoVacuna["tipVac"]; ?></option>
-                                                        <?php }
-                                                ?>      
-                            </select>
-                    </div>
-
-                    <div class="campo4">
-                            <label>Última vacuna:</label><br>
-                            <input class="input-text" type="text" placeholder="">
-                    </div>
-
-                    <div class="campo4">
-                            <label>Fecha última vacuna:</label><br>
-                            <input class="input-text" type="date" placeholder="">
-                    </div>
-
-                    <div class="campo4">
-                            <label>Fecha próxima vacuna:</label><br>
-                            <input class="input" type="date" placeholder="">
-                    </div><br>
-
-                    <div class="contenedor-btntabs3">
-                        <div class="btn3">
-                            <form action="" method="POST">
-                                <button type="submit">Guardar</button>
-                            </form>
-                        </div>
-                    </div>
-     
-                </section>
-
-                <section id="tab4">
-
-                    <div class="campo4">
-                            <label>Último desparasitante interno:</label><br>
-                            <input class="input-text" type="text" placeholder="">
-                    </div>
-
-                    <div class="campo4">
-                            <label>Fecha úlima desparasitación interna:</label><br>
-                            <input class="input-text" type="date" placeholder="">
-                    </div>
-
-                    <div class="campo4">
-                            <label>Último desparasitante externo:</label><br>
-                            <input class="input-text" type="text" placeholder="">
-                    </div>
-
-                    <div class="campo4">
-                            <label>Fecha úlima desparasitación externa:</label><br>
-                            <input class="input" type="date" placeholder="">
-                    </div><br>
-
-                    <div class="contenedor-btntabs4">
-                        <div class="btn3">
-                            <form action="" method="POST">
-                                <button type="submit">Guardar</button>
-                            </form>
-                        </div>
-                    </div>
-                    
-                </section>
-
-                <section id="tab5">
 
                      <div class="campo4">
-                            <label>Estado reproductivo:</label><br>
-                            <select class="selector" name="eReproductivo" id="eReproductivo">
-                                                <option value = "-1" disabled="disabled">Seleccionar estado</option>
-
-                                                <?php
-                                                        require_once 'conexion.php';
-
-                                                        $sentencia = "SELECT * FROM eReproductivo ORDER BY  estRep";
-                                                        $registro = $mysqli->query($sentencia) or die (mysqli_error($mysqli));
-                                                        
-                                                        while($eReproductivo = mysqli_fetch_array($registro)) { ?>
-                                                        <option value="<?php echo $eReproductivo["idEstRep"]; ?>"><?php echo $eReproductivo["estRep"]; ?></option>
-                                                        <?php }
-                                                ?>      
-                            </select>
+                            <label>N° Licencia de conducción</label><br>
+                            <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)">
                     </div>
 
-                    <div class="campo4">
-                            <label>Número de partos:</label><br>
-                            <input class="input-text" type="number" placeholder="">
+                     <div class="campo4">
+                            <label>Fecha de expedición:</label><br>
+                            <input class="input-date" type="text" placeholder="" onFocus="vaciar(this)">
                     </div>
 
-                    <div class="campo4">
-                            <label>Fecha último celo:</label><br>
-                            <input class="input-text" type="date" placeholder="">
-                    </div><br>
-
-                    <div class="contenedor-btntabs5">
-                        <div class="btn3">
-                            <form action="" method="POST">
-                                <button type="submit">Guardar</button>
-                            </form>
-                        </div>
+                      <div class="campo4">
+                            <label>Restricciones del conductor:</label><br>
+                            <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)">
                     </div>
-                    
+
+                      <div class="campo4">
+                            <label>Categorías autorizadas:</label><br>
+                            <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)">
+                    </div>
+
+                    <div class="contenedor-btntabs2">
+                        <form action="" method="POST">
+                            <a href="">
+                                <div class="btn3">
+                                        <button type="submit" onclick="vaciar()">Guardar</button>
+                                </div>
+                            </a>
+                        </form>
+                    </div>
+
                 </section>
 
             </div>
@@ -631,39 +521,15 @@ $data=$register->fetch_assoc();*/
         </section>
 
         <section>
-
-            <div class="seguimiento-clinico">
-
-                
-                    <h2>Examen y seguimiento Clínico</h2>
-
-                    <div class="campo5">
-                            <label></label><br>
-                            <textarea class="input-text seguimiento"></textarea>
-
-                            <div class="contenedor-btn6">
-                                <form action="" method="POST">
-                                    <div class="btn3">
-                                            <button type="submit">Guardar</button>
-                                    </div>
-                                </form>
-                            </div>
-                    </div>
             
-            </div>
-
-        </section>
-
-        <section>
-            
-            <div class="contenedor-nuevaconsulta">
+            <div class="contenedor-nuevotransporte">
 
 
                 <figure class="btn-irpaciente">
 
                     <form action="" method="POST">
-                        <a href= "../ModulosBuscar/buscarPaciente/buscarPaciente.php?hisCli=<?php echo $dato['hisCli'];?>">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-left" width="68" height="68" viewBox="0 0 24 24" stroke-width="2.5" stroke="#0D4251" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <a href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-left" width="68" height="68" viewBox="0 0 24 24" stroke-width="2.5" stroke="#432B8D" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                   <line x1="5" y1="12" x2="19" y2="12" />
                                   <line x1="5" y1="12" x2="11" y2="18" />
@@ -672,15 +538,14 @@ $data=$register->fetch_assoc();*/
                         </a>
                     </form>
 
-                    <figcaption>Ir a <br>Paciente</figcaption>
+                    <figcaption>Ir a <br>Consulta</figcaption>
 
                 </figure>
 
-                <figure class="btn-nuevaconsulta">
-
+                <figure class="btn-nuevacirugia">
                     <form action="" method="POST">
-                        <a href="../ModulosSerMed/crearConsulta.php">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-plus" width="92" height="92" viewBox="0 0 24 24" stroke-width="1.5" stroke="#0D4251" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <a href="formulariocreartransporte.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-plus" width="92" height="92" viewBox="0 0 24 24" stroke-width="1.5" stroke="#432B8D" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                   <circle cx="12" cy="12" r="9" />
                                   <line x1="9" y1="12" x2="15" y2="12" />
@@ -689,15 +554,14 @@ $data=$register->fetch_assoc();*/
                         </a>
                     </form>
 
-                    <figcaption>Nueva consulta</figcaption>
+                    <figcaption>Nuevo Transporte</figcaption>
 
                 </figure>
 
-                <figure class="btn-ircirugia">
-
+                <figure class="btn-irhospitalizacion">
                     <form action="" method="POST">
-                        <a href="formulariocrearcirugia.html">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-right" width="68" height="68" viewBox="0 0 24 24" stroke-width="2.5" stroke="#0D4251" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <a href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-right" width="68" height="68" viewBox="0 0 24 24" stroke-width="2.5" stroke="#432B8D" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                   <line x1="5" y1="12" x2="19" y2="12" />
                                   <line x1="13" y1="18" x2="19" y2="12" />
@@ -706,7 +570,7 @@ $data=$register->fetch_assoc();*/
                         </a>
                     </form>
 
-                    <figcaption>Ir a <br>Cirugía</figcaption>
+                    <figcaption>Ir a <br>Guardería</figcaption>
                 </figure>                   
                     
 
@@ -715,44 +579,37 @@ $data=$register->fetch_assoc();*/
         </section>
 
 
-<!--------------1. POP UP "INFORMACIÓN ALMACENADA CON ÉXITO"------------------>
+<!--------------1. POP UP "INFORMACIÓN ALMACENADA CON ÉXITO"--------------->
 
-
-            <div class="pop-up">
+        <div class="pop-up">
             
-                <div class="pop-wrap">
+            <div class="pop-wrap">
 
-                        <div class="close flex alinear-derecha">
-                            
-                            <form action="" method="POST">
-                                <a href="#">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-x" id="close" width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="#81D7F0" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                          <circle cx="12" cy="12" r="9" />
-                                          <path d="M10 10l4 4m0 -4l-4 4" />
-                                    </svg>
-                                </a>
-                            </form>
+            <div class="close flex alinear-derecha">
+                
+                <form action="" method="POST">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-x" id="close" width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="#6D7FE1" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                              <circle cx="12" cy="12" r="9" />
+                              <path d="M10 10l4 4m0 -4l-4 4" />
+                        </svg>
+                    </a>
+                </form>
 
-                        </div>
+            </div>
 
-                        <h3>Información almacenada con éxito.</h3>
+                <h3>Información almacenada con éxito.</h3>
 
-                        <form action="" method="POST">
-                            <a href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check" width="92" height="92" viewBox="0 0 24 24" stroke-width="1" stroke="#81D7F0" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                      <circle cx="12" cy="12" r="9" />
-                                      <path d="M9 12l2 2l4 -4" />
-                                </svg>
-                            </a>
-                        </form>
-                    
-                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check" width="92" height="92" viewBox="0 0 24 24" stroke-width="1" stroke="#6D7FE1" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <circle cx="12" cy="12" r="9" />
+                      <path d="M9 12l2 2l4 -4" />
+                </svg>
+                
+            </div>
 
         </div>
-
-
 
 <!----------------------2. POP UP "CANCELAR REGISTRO"------------------------->
 
@@ -766,7 +623,7 @@ $data=$register->fetch_assoc();*/
                         <form action="" method="POST">
                             <a href="#">
 
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-alert-octagon" width="112" height="112" viewBox="0 0 24 24" stroke-width="1.5" stroke="#81D7F0" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-alert-octagon" width="112" height="112" viewBox="0 0 24 24" stroke-width="1.5" stroke="#6D7FE1" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                         <path d="M8.7 3h6.6c.3 0 .5 .1 .7 .3l4.7 4.7c.2 .2 .3 .4 .3 .7v6.6c0 .3 -.1 .5 -.3 .7l-4.7 4.7c-.2 .2 -.4 .3 -.7 .3h-6.6c-.3 0 -.5 -.1 -.7 -.3l-4.7 -4.7c-.2 -.2 -.3 -.4 -.3 -.7v-6.6c0 -.3 .1 -.5 .3 -.7l4.7 -4.7c.2 -.2 .4 -.3 .7 -.3z" />
                                         <line x1="12" y1="8" x2="12" y2="12" />
@@ -795,22 +652,19 @@ $data=$register->fetch_assoc();*/
                     
                 </div>
 
-            </div>
+            </div> 
 
 <!--------------3. POP UP "VISUALIZAR PACIENTE" - 3.1. CONTENEDOR MASCOTA----------------------------->
 
+        <div class="vis-pac-pop-up">
 
-<!----------------------4. POP UP "VISUALIZAR PROPIETARIO" 4.1. CONTENEDOR PROPIETARIO---------------------->
+            <div class="vis-pac-pop-wrap">
 
-    <div class="vis-pro-pop-up">
-
-            <div class="vis-pro-pop-wrap">
-
-                    <div class="close-vis-pro flex alinear-derecha">
+                    <div class="close-vis-pac flex alinear-derecha">
                             
                             <form action="" method="POST">
                                 <a href="#">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-x" id="close-vis-pro" width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="#0D4251" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-x" id="close-vis-pac" width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="#432B8D" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                           <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                           <circle cx="12" cy="12" r="9" />
                                           <path d="M10 10l4 4m0 -4l-4 4" />
@@ -820,11 +674,209 @@ $data=$register->fetch_assoc();*/
 
                     </div>
 
-                    <form class="fechayhora">
+                    <form class="fechayhora" action="" method="POST">
                                    
-                            <div class="fecha">
+                            <div class="fecha-vis-pac">
                                     <label>Fecha:</label>
-                                    <input class="input-date" type="date" value="<?php date_default_timezone_set("America/Bogota");echo date('Y-m-d');?>" readonly>
+                                    <input class="input-date" type="date" placeholder="">
+                            </div>        
+                                
+                    </form>    
+
+                    <div class="contenedorServicio">
+                            
+                            <form class="numeroServicio" action="" method="POST">
+                                    <div>
+                                        <label>n° de servicio</label><br>
+                                        <input type="" name="">   
+                                    </div>
+                            </form>
+
+                    </div>
+
+                    <div class="paciente-vis-pac">
+
+                            <div class="datos-paciente-vis-pac">
+
+                                <h2>Datos Mascota</h2>
+
+                            </div>
+
+
+                            <form class="formulario1" action="" method="POST">
+
+                                    <div class="contenedor-infopaciente-vis-pac">   
+
+                                                <div class="contenedor-imagen">
+                                                        <figure>
+                                                            <img src="" alt="" >
+                                                        </figure>
+                                                </div>
+
+                                                <div class="campo1">
+                                                    <label>Nombre:</label>
+                                                    <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)">
+                                                </div>
+                                                <div class="campo1">
+                                                    <label>Especie:</label>
+                                                    <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)">
+                                                </div>
+                                                <div class="campo1">
+                                                    <label>Raza:</label>
+                                                    <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)">
+                                                </div>
+                                                <div class="campo1">
+                                                    <label>Sexo:</label>
+                                                    <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)">
+                                                </div>
+                                                <div class="campo1">
+                                                    <label>Fecha de Nacimiento:</label>
+                                                    <input class="input-text" type="date" placeholder="" onFocus="vaciar(this)">
+                                                </div>
+                                                <div class="campo1">
+                                                    <label>Color:</label>
+                                                    <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)">
+                                                </div>
+                                                <div class="campo1">
+                                                    <label>Última atención:</label>
+                                                    <input class="input-text" type="date" placeholder="" onFocus="vaciar(this)">
+                                                </div>
+
+                                        
+                                    </div> <!--contenedor-infopaciente--> 
+          
+                            </form>
+
+                    </div>
+
+
+ <!----------3. POP UP "VISUALIZAR PACIENTE - 3.2. CONTENEDOR PROPIETARIO"---------->
+
+
+                    <div class="propietario-vis-pac">
+
+                        <div class="datos-propietario-vis-pac">
+
+                             <h2>Datos Propietario</h2>
+
+                        </div>
+
+                                    <form class="formulario2" action="" method="POST">
+
+
+                                                <div class="contenedor-infopropietario-vis-pac">  
+
+                                                    <div class="campo2">
+                                                        <label>Nombres:</label>
+                                                        <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)">
+                                                    </div>
+
+                                                    <div class="campo2">
+                                                        <label>Apellidos:</label>
+                                                        <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)">
+                                                    </div>
+
+                                                    <div class="campo2">
+                                                        <label>Tipo de documento:</label>
+                                                        <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)">
+                                                    </div>
+
+                                                    <div class="campo2">
+                                                        <label>Número de documento:</label>
+                                                        <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)">
+                                                    </div>
+
+                                                    <div class="campo2">
+                                                        <label>Dirección:</label>
+                                                        <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)">
+                                                    </div>
+
+                                                    <div class="campo2">
+                                                        <label>Municipio:</label>
+                                                        <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)">
+                                                    </div>
+
+                                                    <div class="campo2">
+                                                        <label>Celular:</label>
+                                                        <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)">
+                                                    </div>
+
+                                                    <div class="campo2">
+                                                        <label>E-mail:</label>
+                                                        <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)">
+                                                    </div>
+                                                    
+                                                    
+                                                </div> <!--contenedor-infopropietario-->
+                                    </form>
+
+                                <div class="contenedor-logo-vis-pac">
+
+                                    <img src="img/logohospital.png" alt=""class="imagen1"/>
+                                    <img src="img/leyenda.png" alt=""class="imagen2"/>
+                                </div>
+
+
+                                <div class="contenedor-info-veterinaria">
+
+
+                                     <p class="parrafo-info-vet">
+                                            Dirección: Transversal 23 b - Bis N° 26 -23 <br>
+                                            Manila II Sector - Fusagasugá <br>
+                                            Contacto 300 767 2316   -  311 441 2405 <br>
+                                     </p>
+
+
+                                </div>
+
+
+                                <div class="contenedor-btns-vis-pac">
+
+                                    <form action="" method="POST">
+                                        <div class="btn2">
+                                            <button type="submit">Excel</button>
+                                        </div>
+                                    </form>
+
+                                    <form action="" method="POST">
+                                        <div class="btn2">
+                                            <button type="submit">PDF</button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                </div>
+
+        </div>
+
+   </div>  
+
+
+<!----------------------4. POP UP "VISUALIZAR PROPIETARIO" 4.1. CONTENEDOR PROPIETARIO---------------------->
+
+<div class="vis-pro-pop-up">
+
+            <div class="vis-pro-pop-wrap">
+
+                    <div class="close-vis-pro flex alinear-derecha">
+                            
+                            <form action="" method="POST">
+                                <a href="#">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-x" id="close-vis-pro" width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="#432B8D" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                          <circle cx="12" cy="12" r="9" />
+                                          <path d="M10 10l4 4m0 -4l-4 4" />
+                                    </svg>
+                                </a>
+                            </form>
+
+                    </div>
+
+                    <form class="fechayhora" action="" method="POST">
+                                   
+                            <div class="fecha-vis-pac">
+                                    <label>Fecha:</label>
+                                    <input class="input-date" type="date" placeholder="">
                             </div>        
                                 
                     </form>
@@ -845,42 +897,42 @@ $data=$register->fetch_assoc();*/
 
                                                         <div class="campo2">
                                                              <label>Nombres:</label>
-                                                             <input class="input-text" type="text" placeholder="" value="<?php echo $dato['nomPro'];  ?>" readonly>
+                                                            <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)">
                                                         </div>
 
                                                         <div class="campo2">
                                                             <label>Apellidos:</label>
-                                                            <input class="input-text" type="text" placeholder="" value="<?php echo $dato['apePro'];  ?>" readonly>
+                                                            <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)">
                                                         </div>
 
                                                         <div class="campo2">
                                                             <label>Tipo de documento:</label>
-                                                            <input class="input-text" type="text" placeholder=" "value="<?php echo $dato['tipDoc'];  ?>" readonly>
+                                                            <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)">
                                                         </div>
 
                                                         <div class="campo2">
                                                             <label>Número de documento:</label>
-                                                            <input class="input-text" type="text" placeholder="" value="<?php echo $dato['docPro'];  ?>" readonly>
+                                                            <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)">
                                                         </div>
 
                                                         <div class="campo2">
                                                             <label>Dirección:</label>
-                                                            <input class="input-text" type="text" placeholder="" value="<?php echo $dato['dirPro'];  ?>" readonly>
+                                                            <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)">
                                                         </div>
 
                                                         <div class="campo2">
                                                             <label>Municipio:</label>
-                                                            <input class="input-text" type="text" placeholder="" value="<?php echo $dato['munPro'];  ?>" readonly>
+                                                            <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)">
                                                         </div>
 
                                                         <div class="campo2">
                                                             <label>Celular:</label>
-                                                            <input class="input-text" type="text" placeholder="" value="<?php echo $dato['celPro'];  ?>" readonly>
+                                                            <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)">
                                                         </div>
 
                                                         <div class="campo2">
                                                             <label>E-mail:</label>
-                                                            <input class="input-text" type="text" placeholder="" value="<?php echo $dato['emaPro'];  ?>" readonly>
+                                                            <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)">
                                                         </div>
                                                                
                                                     </div> <!--contenedor-infopropietario-->
@@ -888,11 +940,11 @@ $data=$register->fetch_assoc();*/
 
                     </div>
 
+    
+<!-------------------LISTADO PACIENTES----------------------------->
 
 
-<!-------------------LISTADO PACIENTES-------------------------------------->
-
-                    <div class="listado-pacientes">
+<div class="listado-pacientes">
 
                         <div class="pacientes-a-cargo">
                                 <h2>Pacientes a Cargo</h2>
@@ -912,16 +964,37 @@ $data=$register->fetch_assoc();*/
                                 </tr>
 
                                 <tr class="fila"><!--fila-->
-                                    <td name="tdHistoria"><?php echo $dato['hisCli']; ?></td><!--columna-->
-                                    <td name="tdPaciente"><?php echo $dato['nomPac']; ?></td><!--columna-->
-                                    <td name="tdSexo"><?php echo $dato['sexPac']; ?></td><!--columna-->
-                                    <td name="tdEspecie"><?php echo $dato['espPac']; ?></td><!--columna-->
-                                    <td name="tdRaza"><?php echo $dato['razPac']; ?></td><!--columna-->
-                                    <td name="tdUltAtencion"><?php echo $dato['ultAte']; ?></td><!--columna-->
-                                    <td name="tdEstado"><?php echo $dato['estado']; ?></td><!--columna-->
-                                    <td name="tdObservaciones"><?php echo $dato['obsPac']; ?></td><!--columna-->
+                                     <td></td><!--columna-->
+                                     <td></td><!--columna-->
+                                     <td></td><!--columna-->
+                                     <td></td><!--columna-->
+                                     <td></td><!--columna-->
+                                     <td></td><!--columna-->
+                                     <td></td><!--columna-->
+                                     <td></td><!--columna-->
                                 </tr>
 
+                                <tr class="fila"><!--fila-->
+                                     <td></td><!--columna-->
+                                     <td></td><!--columna-->
+                                     <td></td><!--columna-->
+                                     <td></td><!--columna-->
+                                     <td></td><!--columna-->
+                                     <td></td><!--columna-->
+                                     <td></td><!--columna-->
+                                     <td></td><!--columna-->
+                                </tr>
+
+                                <tr class="fila"><!--fila-->
+                                     <td></td><!--columna-->
+                                     <td></td><!--columna-->
+                                     <td></td><!--columna-->
+                                     <td></td><!--columna-->
+                                     <td></td><!--columna-->
+                                     <td></td><!--columna-->
+                                     <td></td><!--columna-->
+                                     <td></td><!--columna-->
+                                </tr>
 
                             </table>
                         </div>
@@ -964,8 +1037,7 @@ $data=$register->fetch_assoc();*/
                     </div>
 
 
-            </div>
-    </div>   
+    </div>    
 
 
 <!--------------5. POP UP "EDITAR PACIENTE" - 5.1. CONTENEDOR MASCOTA----------------------------->
@@ -978,7 +1050,7 @@ $data=$register->fetch_assoc();*/
                             
                             <form action="" method="POST">
                                 <a href="#">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-x" id="close-vis-pac-edit" width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="#0D4251" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-x" id="close-vis-pac-edit" width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="#432B8D" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                           <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                           <circle cx="12" cy="12" r="9" />
                                           <path d="M10 10l4 4m0 -4l-4 4" />
@@ -997,16 +1069,16 @@ $data=$register->fetch_assoc();*/
                                 
                     </form>    
 
-                     <div class="contenedorhc">
-                    
-                    <form class="historiaclinica">
-                            <div>
-                                <label>Historia Clínica</label><br>
-                                <input type="" name="">   
-                            </div>
-                    </form>
+                    <div class="contenedorServicio">
+                            
+                            <form class="numeroServicio" action="" method="POST">
+                                    <div>
+                                        <label>n° de servicio</label><br>
+                                        <input type="" name="">   
+                                    </div>
+                            </form>
 
-                </div>
+                    </div>
 
                     <div class="paciente-vis-pac">
 
@@ -1061,7 +1133,7 @@ $data=$register->fetch_assoc();*/
           
                             </form>
 
-                    </div>
+                    </div> 
 
 <!----------5. POP UP "EDITAR PACIENTE - 5.2. CONTENEDOR PROPIETARIO"---------->
 
@@ -1161,7 +1233,7 @@ $data=$register->fetch_assoc();*/
 
         </div>
 
-   </div>
+   </div> 
 
 <!--------------6. POP UP "NUEVO PACIENTE" - 6.1. CONTENEDOR MASCOTA----------------------------->
 
@@ -1173,7 +1245,7 @@ $data=$register->fetch_assoc();*/
                             
                             <form action="" method="POST">
                                 <a href="#">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-x" id="close-vis-pac-new" width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="#0D4251" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-x" id="close-vis-pac-new" width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="#432B8D" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                           <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                           <circle cx="12" cy="12" r="9" />
                                           <path d="M10 10l4 4m0 -4l-4 4" />
@@ -1190,20 +1262,19 @@ $data=$register->fetch_assoc();*/
                                     <input class="input-date" type="date" placeholder="">
                             </div>        
                                 
-                    </form>  
+                    </form>    
 
-                     <div class="contenedorhc">
-                    
-                        <form class="historiaclinica">
-                                <div>
-                                    <label>Historia Clínica</label><br>
-                                    <input type="" name="">   
-                                </div>
-                        </form>
+                    <div class="contenedorServicio">
+                            
+                            <form class="numeroServicio" action="" method="POST">
+                                    <div>
+                                        <label>n° de servicio</label><br>
+                                        <input type="" name="">   
+                                    </div>
+                            </form>
 
-                    </div>  
+                    </div>
 
-                 
                     <div class="paciente-vis-pac">
 
                             <div class="datos-paciente-vis-pac">
@@ -1259,6 +1330,7 @@ $data=$register->fetch_assoc();*/
 
                     </div>
 
+
 <!----------6. POP UP "EDITAR PACIENTE - 6.2. CONTENEDOR PROPIETARIO"---------->
 
 
@@ -1307,7 +1379,7 @@ $data=$register->fetch_assoc();*/
 
                                                     <div class="campo2">
                                                         <label>Celular:</label>
-                                                        <input class="input-text" type="text" placeholder="">
+                                                        <input class="input-text" type="text" placeholder="" onFocus="vaciar(this)">
                                                     </div>
 
                                                     <div class="campo2">
@@ -1361,9 +1433,7 @@ $data=$register->fetch_assoc();*/
 
    </div>
 
-<!----------------------7. POP UP "EDITAR PROPIETARIO" 7.1. CONTENEDOR PROPIETARIO---------------------->
-
-
+   <!----------------------7. POP UP "EDITAR PROPIETARIO" 7.1. CONTENEDOR PROPIETARIO---------------------->
 
 <div class="vis-pro-pop-up-edit">
 
@@ -1373,7 +1443,7 @@ $data=$register->fetch_assoc();*/
                             
                             <form action="" method="POST">
                                 <a href="#">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-x" id="close-vis-pro-edit" width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="#0D4251" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-x" id="close-vis-pro-edit" width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="#432B8D" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                           <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                           <circle cx="12" cy="12" r="9" />
                                           <path d="M10 10l4 4m0 -4l-4 4" />
@@ -1552,6 +1622,8 @@ $data=$register->fetch_assoc();*/
 
 
     </div>
+
+
 
 
 </main>
