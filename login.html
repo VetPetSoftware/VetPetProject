@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vet Pet Software</title>
+
+    <link rel="icon" href="img/logohospital.png">
+    
+    <link rel="preload" href="css/normalize.css" as="style"><link rel="stylesheet" href="css/normalize.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
+    <link rel="preload" href="css/estiloslogin.css" as="style">
+    <link rel="stylesheet" href="css/estiloslogin.css">
+   
+</head>
+
+<body>
+<form class="form-login" id="formulario"  name="login" action="login.php" method="post">
+    <img src="img/logohospital.png">
+    <input class="controls" type="text" name="usuario"  placeholder="Usuario / correo">
+    <input class="controls" type="password" name="contraseña" placeholder="Contraseña">
+
+
+    <input class="buttons" type="submit" target="_parent" id="Borrar" value="Ingresar">
+  
+
+       <a id="show-olvidar" href="#olvidar">¿Olvidó su Contraseña?</a>
+</form>
+     <aside id="olvidar" class="olvidar">
+         <div class="contenido-olvidar">
+             <header>
+                 <a href="#" class="clos-olvidar">  
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-x" id="close" width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="#25719D" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <circle cx="12" cy="12" r="9"></circle>
+                        <path d="M10 10l4 4m0 -4l-4 4"></path>
+                  </svg>
+                </a>
+                 <h2>¿Olvidó su Contraseña?</h2>
+                 <h3>Ingrese el correo registrado</h3>
+                 <input class="correo" type="email" name="correo Usuario" value="" placeholder="correo Usuario">
+                 <a id="show-recuperar" href="#recuperar"> <input class="botons" type="submit" name="" value="Recuperar contraseña"></a>
+             </header>
+         </div>
+     </aside> 
+
+<!--VENTANA EMERGENTE SE MODIFICO EXITOSAMENTE-->
+<aside id="recuperar" class="recuperar">
+<div class="contenido-recuperar">
+    <header>
+        <h2>Se ha enviado su contraseña al correo registrado</h2>
+        <div class="signo">
+           <a href="login.html">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check" width="60" height="60" viewBox="0 0 24 24" stroke-width="3" stroke="#00b341" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <circle cx="12" cy="12" r="9" />
+            <path d="M9 12l2 2l4 -4" />
+            </svg>
+           </a>
+        </div>
+      </header>
+    </div>
+ </aside>
+
+
+
+   
+
+</body>
+</html>
