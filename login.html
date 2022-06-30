@@ -17,56 +17,37 @@
 </head>
 
 <body>
-<form class="form-login" id="formulario"  name="login" action="login.php" method="post">
-    <img src="img/logohospital.png">
-    <input class="controls" type="text" name="usuario"  placeholder="Usuario / correo">
-    <input class="controls" type="password" name="contraseña" placeholder="Contraseña">
-
-
-    <input class="buttons" type="submit" target="_parent" id="Borrar" value="Ingresar">
-  
-
-       <a id="show-olvidar" href="#olvidar">¿Olvidó su Contraseña?</a>
-</form>
-     <aside id="olvidar" class="olvidar">
-         <div class="contenido-olvidar">
-             <header>
-                 <a href="#" class="clos-olvidar">  
-                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-x" id="close" width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="#25719D" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                        <circle cx="12" cy="12" r="9"></circle>
-                        <path d="M10 10l4 4m0 -4l-4 4"></path>
-                  </svg>
-                </a>
-                 <h2>¿Olvidó su Contraseña?</h2>
-                 <h3>Ingrese el correo registrado</h3>
-                 <input class="correo" type="email" name="correo Usuario" value="" placeholder="correo Usuario">
-                 <a id="show-recuperar" href="#recuperar"> <input class="botons" type="submit" name="" value="Recuperar contraseña"></a>
-             </header>
-         </div>
-     </aside> 
-
-<!--VENTANA EMERGENTE SE MODIFICO EXITOSAMENTE-->
-<aside id="recuperar" class="recuperar">
-<div class="contenido-recuperar">
-    <header>
-        <h2>Se ha enviado su contraseña al correo registrado</h2>
-        <div class="signo">
-           <a href="login.html">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check" width="60" height="60" viewBox="0 0 24 24" stroke-width="3" stroke="#00b341" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-            <circle cx="12" cy="12" r="9" />
-            <path d="M9 12l2 2l4 -4" />
-            </svg>
-           </a>
-        </div>
-      </header>
-    </div>
- </aside>
-
-
-
-   
-
+    <div class="cajafuera">
+    <div class="formulariocaja">
+		<!--Formulario para el login -->
+        <form id="frmlogin" class="grupo-entradas" method="POST" action="login.php">
+		<div class="logovai"><img src="img/logohospital.png"></div>
+		<b>&#128231; Correo</b>
+        <input type="email" class="cajaentradatexto" name="txtcorreo" required>
+		<b>&#128274; Contraseña</b>
+        <input type="password" class="cajaentradatexto" name="txtpassword" required>
+        <div class="checkboxvai"><a onclick="abrirform()">Recuperar contraseña</a></div>
+        <button type="submit" class="botonenviar" name="btnloginx">Iniciar sesión</button>
+        </form>
+		<!--Formulario para registrar -->
+     
+    <div class="caja_popup" id="formrecuperar">
+        <form action="recuperar.php" class="contenedor_popup" method="POST">
+              <table>
+              <tr><th colspan="2">Recuperar contraseña</th></tr>
+                  <tr> 
+                      <td><b>&#128231; Correo</b></td>
+                      <td><input type="email" name="txtcorreo" required class="cajaentradatexto"></td>
+                  </tr>
+                  <tr> 	
+                     <td colspan="2">
+                         <button type="button" onclick="cancelarform()" class="txtrecuperar">Cancelar</button>
+                         <input class="txtrecuperar" type="submit" name="btnrecuperar" value="Enviar" onClick="javascript: return confirm('¿Deseas enviar tu contraseña a tu correo?');">
+                  </td>
+                  </tr>
+              </table>
+          </form>
+          </div>
+<script src="js/login.js"></script>
 </body>
 </html>

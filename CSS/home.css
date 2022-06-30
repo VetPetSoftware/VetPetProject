@@ -1,0 +1,517 @@
+:root{
+    --blanco: #FFFFFF;
+    --oscuro:  #212121;
+    --primario: #6DA9CD;
+    --secundario: #3688B8;
+    --azuloscuro:  #25719D;
+    --azulClaro: #DCF1FA;
+    --grisClaro: #E3E3E3;
+    --botones:  #0D4251;
+    --rayas: #A1C1D4;
+}
+
+
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+    scroll-snap-type: y mandatory;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body{
+    font-size: 24px; /*1rem =10px*/
+    font-family: 'Raleway', sans-serif;
+    font-weight: normal;
+}
+
+  /*CUERPO DESPUES DEL INGRESO*/
+.agrupar{
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+.contenedor{
+    max-width: 128rem;
+    margin: 0 auto;
+}
+
+header{
+
+    background-color: var(--primario);
+    border-radius: 25px 25px 0px 0px;
+    margin-top: 5rem;
+
+}
+
+.contenedor-logo{
+    background-color: var(--blanco);
+    width: 60rem;
+    height: 10rem;
+    /*margin: 0 auto;*/
+    border-radius: 50px;
+    margin-top: 2rem;
+    margin-right: 20rem;
+    margin-bottom: 2rem;
+    padding-left: 1.8rem;
+    margin-left: 17rem;
+}
+
+.contenedor-iconos{
+    width: 20rem;
+    margin-top: 3.5rem;
+    margin-bottom: 0.10rem;
+    margin-right: 5rem;
+    margin-left: -5rem;
+
+}
+
+.contenedor-iconos h4{
+    color: var(--blanco);
+    font-size: 1.8rem;
+    text-align: center;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+}
+
+.flex{
+    display: flex;
+}
+
+
+
+
+.imagen1{
+
+    float: center;
+    width:  15rem;
+    height: 6rem; 
+    margin-top: 1.5rem;
+    margin-bottom: 0.3rem;
+}
+
+.imagen2{
+
+    float: center;
+    width:  40rem;
+    height: 6rem; 
+    margin-top: 1.5rem;
+    margin-bottom: 0.3rem;
+}
+
+.nav-bg{
+    background-color: var(--secundario);
+}
+
+.navegacion-principal {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    
+}
+
+.navegacion-principal{
+    flex-direction: row;
+}   
+
+.navegacion-principal a{
+    color: var(--blanco);
+    text-decoration: none;
+    font-family: 'Raleway', sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 1rem;
+}
+
+.navegacion-principal a:hover{
+    color: var(--blanco);
+}
+-------------/* MODALES*/
+
+#show-modal{
+    text-align: center;
+    padding: 15px 15px;
+    color: var(--azulClaro);
+    font-weight: 500;
+    font-size: 1.5em;
+    border-radius: 2rem;
+    text-decoration-line: none;
+  
+}
+
+#show-modal  :hover{
+cursor: pointer;
+background: var(--azuloscuro);
+}
+
+
+.modal{
+    position: fixed;
+    top: -100vh;
+    left: 0;
+    z-index: 9999999;
+    background: rgb(0, 0, 0, 0.75);
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+
+}
+
+.modal .content-modal{
+    width: 100%;
+    max-width: 500px;
+    position: fixed;
+    left: 50%;
+    top: -100vh;
+    transition: top 0.35 ease;
+    margin-left: 5px;
+    background:var(--blanco);
+    box-shadow: 0 1px 2px var(--blanco);
+    border-radius: 2rem;
+    text-decoration: none;
+}
+
+.modal h2{
+
+    width: 50rem;
+    border-radius: 2px;
+    padding: 0.5rem;
+    text-align: center;
+    margin: 0;
+}
+
+.modal h3{
+    width: 40rem;
+    border-radius: 2rem;
+    padding: 0.5em;
+    text-align: center;
+    background-color: var(--secundario);
+    box-shadow: 0 1px 2px var(--oscuro);
+    color: var(--blanco);
+    margin-top: 1rem;
+    margin-left: 4rem;
+    text-decoration: none;   
+}
+.modal article{
+    height: 300px;
+    background: var(--grisClaro);
+}
+
+.close-modal{
+    color: var(--blanco);
+    position: absolute;
+    top: 0.3rem;
+    right: 2.5rem;
+    margin: 0;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 3rem;
+    text-decoration: none;
+}
+
+.modal a:hover{
+ color: var(--oscuro);
+ 
+}
+
+.modal:target{
+ opacity: 1;
+ top: 0;
+}
+
+.modal .btn-close-modal{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999991;
+}
+
+.modal:target .content-modal{
+    top: 50px;
+    transition: top 0.35s ease;
+}
+/*MEDICOS VETERINARIOS*/
+#show-medicos{
+    text-align: center;
+    background: var(--secundario);
+    padding: 7px 7px;
+    color: var(--blanco);
+    font-weight: 500;
+    font-size: 2rem;
+}
+
+#show-medicos  :hover{
+cursor: pointer;
+background: var(--azuloscuro);
+}
+.medicos{
+    position: fixed;
+    top: -100vh;
+    left: 0;
+    z-index: 9999999;
+    background: rgb(0, 0, 0, 0.75);
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+
+}
+
+.medicos .contenido-medicos{
+    width: 100%;
+    max-width: 500px;
+    position: fixed;
+    left: 50%;
+    top: -100vh;
+    transition: top 0.35 ease;
+    margin-left: 5px;
+    background:var(--blanco);
+    box-shadow: 0 1px 2px var(--blanco);
+    border-radius: 2rem;
+    text-decoration: none;
+}
+
+.medicos h2{
+    width: 50rem;
+    border-radius: 2px;
+    padding: 0.5rem;
+    text-align: center;
+    margin: 0;
+}
+
+.medicos h3{
+    width: 40rem;
+    border-radius: 2rem;
+    padding: 0.5em;
+    text-align: center;
+    background-color: var(--secundario);
+    box-shadow: 0 1px 2px var(--oscuro);
+    color: var(--blanco);
+    margin: 1px;
+    margin-left: 4rem;
+    text-decoration: none;   
+}
+
+.medicos article{
+    height: 300px;
+    background: var(--grisClaro);
+}
+
+.close-medicos{
+    
+    color: var(--blanco);
+    position: absolute;
+    top: 0.3rem;
+    right: 2.5rem;
+    margin: 0;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 3rem;
+    text-decoration: none;
+}
+
+.medicos a:hover{
+ color: var(--oscuro);
+}
+
+.medicos:target{
+ opacity: 1;
+ top: 0;
+}
+
+.medicos .btn-close-medicos{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999991;
+}
+
+.medicos:target .contenido-medicos{
+    top: 50px;
+    transition: top 0.35s ease;
+}
+
+#show-complementarios{
+    text-align: center;
+    background: var(--secundario);
+    padding: 7px 7px;
+    color: var(--blanco);
+    font-weight: 500;
+    font-size: 2rem;
+ 
+}
+
+#show-complementarios  :hover{
+cursor: pointer;
+background: var(--azuloscuro);
+}
+.complementarios{
+    position: fixed;
+    top: -100vh;
+    left: 0;
+    z-index: 9999999;
+    background: rgb(0, 0, 0, 0.75);
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+
+
+}
+
+.complementarios .contenido-complementarios{
+    width: 100%;
+    max-width: 500px;
+    position: fixed;
+    left: 50%;
+    top: -100vh;
+    transition: top 0.35 ease;
+    margin-left: 5px;
+    background:var(--blanco);
+    box-shadow: 0 1px 2px var(--blanco);
+    border-radius: 2rem;
+    text-decoration: none;
+
+
+}
+
+.complementarios h2{
+    width: 50rem;
+    border-radius: 2px;
+    padding: 0.5rem;
+    text-align: center;
+    margin-bottom: 2px;
+    margin-top: 5rem;
+}
+
+.complementarios h3{
+    width: 40rem;
+    border-radius: 2rem;
+    padding: 0.5em;
+    text-align: center;
+    background-color: var(--secundario);
+    box-shadow: 0 1px 2px var(--oscuro);
+    color: var(--blanco);
+    margin: 1px;
+    margin-left: 4rem;
+    text-decoration: none;   
+}
+.complementarios article{
+    height: 300px;
+    background: var(--grisClaro);
+}
+
+.close-complementarios{
+    color: var(--blanco);
+    position: absolute;
+    top: 0.3rem;
+    right: 2.5rem;
+    margin: 0;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 3rem;
+    text-decoration: none;
+}
+
+.complementarios a:hover{
+ color: var(--azuloscuro);
+}
+
+.complementarios:target{
+ opacity: 1;
+ top: 0;
+}
+
+.complementarios .btn-close-complementarios{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999991;
+}
+
+.complementarios:target .contenido-complementarios{
+    top: 50px;
+    transition: top 0.35s ease;
+}
+
+footer {
+    background-color: var(--secundario);
+    border-radius: 0px 0px 25px 25px;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    margin-top: 2rem;
+  }
+  .parrafo {
+    color: var(--blanco);
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.4rem;
+    font-weight: normal;
+    text-align: center;
+  }
+
+/*MODULO DE PENDIENTES*/
+
+li {
+    list-style: none;
+    margin-bottom: 5px;
+    border: #141313 solid 2px;
+    background-color: #e4e6e7;
+    border-radius: 1rem;
+    width:max-content;
+  
+}
+
+a.enlace-eliminar {
+    margin-left: 10px;
+    margin-right: 2rem;
+    text-decoration: none;
+    font-size: 3rem;
+    color: #1d1e1f;
+   
+}
+
+.ok{
+    cursor: pointer;
+    background-color: var(--azuloscuro);
+    color: #ffffff;
+    border-radius: 1rem;
+    border: #141313 solid 1px;
+}
+.tachado {
+    text-decoration: line-through;
+    margin: 2rem;
+    
+}
+
+
+.tareas{
+    border: #212121 solid 2px;
+    margin-top: -0.1rem;
+    height: 5rem;
+    border-radius: 1rem;
+    background-color: #c8d1d6;
+    color: #141313;
+    text-align: center;
+    font-size: 3rem;
+    
+}
+
+.pendientes{
+    border: #212121 solid 2px;
+    border-radius: 1rem;
+    margin-bottom: 3rem;
+    margin-top: 5rem;
+    height: 25rem;
+    background: -webkit-linear-gradient(top, var(--rayas), var(--primario));
+}
+
+.textoTareas{
+    color: #000000;
+    margin-left: 2rem;
+
+}

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+    <STYLE>A {text-decoration: none;} </STYLE>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vet Pet Software</title>
+    
+    <link rel="preload" href="css/normalize.css" as="style"><link rel="stylesheet" href="css/normalize.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
+    <link rel="preload" href="css/home.css" as="style">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body class="agrupar">
+    <header>
+    
+       
+        <div class="alinear-derecha flex">
+            <div class="contenedor-logo">
+
+                <img src="img/logohospital.png" alt=""class="imagen1"/>
+                <img src="img/leyenda.png" alt=""class="imagen2"/>
+            </div>
+
+            <div class="contenedor-iconos">
+
+                <!-- VENTANA MODAL USUARIO-->
+                
+        <a id="show-modal" href="#modal">
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-circle" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <circle cx="12" cy="12" r="9" />
+                <circle cx="12" cy="10" r="3" />
+                <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855" />
+                </svg>
+        </a>
+        <aside id="modal" class="modal">
+            <div class="content-modal">
+                <header1>
+                    <a href="#" class="close-modal">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-x" id="close" width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="#25719D" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9" />
+                            <path d="M10 10l4 4m0 -4l-4 4" />
+                      </svg>
+                    </a>
+                    <h2>Opciones</h2>
+                    <a href="informacion.php"><h3>Informacion</h3></a>
+                    <a href="cambiarcontraseña.html"><h3>Cambiar contraseña</h3></a>
+                    <a href="login.html"><h3>Salir</h3></a>
+                </header1>
+            </div>
+        </aside>
+        
+      
+            <a class="boton1" href="http://localhost/eventos/">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-event" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <rect x="4" y="5" width="16" height="16" rx="2" />
+                    <line x1="16" y1="3" x2="16" y2="7" />
+                    <line x1="8" y1="3" x2="8" y2="7" />
+                    <line x1="4" y1="11" x2="20" y2="11" />
+                    <rect x="8" y="15" width="2" height="2" />
+                </svg>
+            </a>
+        
+            <a class="boton"  href="#">
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-bell" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" />
+                    <path d="M9 17v1a3 3 0 0 0 6 0v-1" />
+                </svg>
+            </a>
+
+        
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-help" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <circle cx="12" cy="12" r="9" />
+                    <line x1="12" y1="17" x2="12" y2="17.01" />
+                    <path d="M12 13.5a1.5 1.5 0 0 1 1 -1.5a2.6 2.6 0 1 0 -3 -4" />
+                </svg>
+
+                    <h4>Dr. Arith Peralta</h4>   
+        </div>
+    </div>
+
+    </header>
+
+        <div class="nav-bg">
+
+            <nav class="navegacion-principal contenedor">
+
+                <a href="home.html">Inicio</a>
+                <a href="buscarpropietario.html">Propietarios</a>
+                <a href="buscarpaciente.html">Pacientes</a>
+
+<!--  MODAL SERVICIOS MEDICOS-->
+<a id="show-medicos" href="#medicos">Serv. Médicos</a>
+<aside id="medicos" class="medicos">
+    <div class="contenido-medicos">
+        <header2>
+            <a href="#" class="close-medicos">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-x" id="close" width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="#25719D" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <circle cx="12" cy="12" r="9" />
+                <path d="M10 10l4 4m0 -4l-4 4" />
+          </svg></a>
+            <h2>Servicios Medicos</h2>
+            <a href="consulta.html" ><h3>Consulta</h3></a>
+            <a href="cirugia.html" ><h3>Cirugia</h3></a>
+            <a href="Hospitalizacion.html"><h3>hospitalizacion</h3></a>
+        </header2>
+    </div>
+</aside>
+
+<!--MODAL SEVICIOS COMPLEMENTARIOS-->
+    <a id="show-complementarios" href="#complementarios">Serv. Complementarios</a>
+                <aside id="complementarios" class="complementarios">
+                    <div class="contenido-complementarios">
+                        <header2>
+                            <a href="#" class="close-complementarios">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-x" id="close" width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="#25719D" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                    <circle cx="12" cy="12" r="9" />
+                                    <path d="M10 10l4 4m0 -4l-4 4" />
+                              </svg>
+                            </a>
+                            <h2>Servicios Complementarios</h2>
+                           <a href="transporte.html"><h3>Transporte</h3></a>
+                           <a href="guarderia.html"><h3>Guarderia Canina</h3></a>
+                        </header2>
+                    </div>
+                </aside>
+
+
+                <a href="reportes.html">Reportes</a> 
+
+            </nav>
+        </div>
+
+        </section>
+   <div class="pendientes">
+        <h2 class="tareas">Lista de tareas pendientes</h2>
+        <div class="textoTareas">
+        <label for="inputNuevaTarea">Agregar nueva tarea: </label>
+        <input type="text" id="inputNuevaTarea">
+        <button id="btnAgregarTarea" class="ok" >Ok</button>
+        <ul id="contenedorTareas"></ul>
+    </div>
+    </div>  
+
+
+  <footer class="footer">
+        <p class="parrafo">VetPet Software<br>
+        www.vetpetsoftware.com<br>
+        info@vetpetsoftware.com</p>
+    </footer>
+
+</body>
+
+<script src="js/pendientes.js"></script>
+</html>

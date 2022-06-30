@@ -1,30 +1,23 @@
 <?php
-$usuario=$_POST['usuario'];
-$contraseña=$_POST['contraseña'];
-session_start();
-$_SESSION['usuario']=$usuario;
 
-$conexion=mysqli_connect("localhost","root","","rol");
+include('conexion.php');
 
-$consulta="SELECT*FROM usuarios where usuario='$usuario' and contraseña='$contraseña'";
-$resultado=mysqli_query($conexion,$consulta);
+$correo = $_POST["txtcorreo"];
+$pass 	= $_POST["txtpassword"];
 
-$filas=mysqli_fetch_array($resultado);
+//Para iniciar sesión
 
-if($filas['id_cargo']==1){ //administrador
-    header("location:home.html");
+$queryusuario = mysqli_query($conexion,"SELECT * FROM usuarios WHERE correo ='$correo' and pass = '$pass'");
+$nr 		= mysqli_num_rows($queryusuario);  
+	
+if ($nr == 1)  
+	{ 
+	echo	"<script> alert('Usuario logueado.');window.location= 'home.html' </script>";
+	}
+else
+	{
+	echo "<script> alert('Usuario o contraseña incorrecto.');window.location= 'login.html' </script>";
+	}
 
-}else
-if($filas['id_cargo']==2){ //cliente
-header("location:guarderia.html");
-}
-else{
-    ?>
-    <?php
-    include("login.html");
-    ?>
-    <h1 class="bad">ERROR EN LA AUTENTIFICACION</h1>
-    <?php
-}
-mysqli_free_result($resultado);
-mysqli_close($conexion);
+/*VaidrollTeam*/
+?>
