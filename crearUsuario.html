@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+    <STYLE>A {text-decoration: none;} </STYLE>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vet Pet Software</title>
+    
+    <link rel="preload" href="css/normalize.css" as="style"><link rel="stylesheet" href="css/normalize.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
+    <link rel="preload" href="CSS/crearUsuario.css" as="style">
+    <link rel="stylesheet" href="CSS/crearUsuario.css">
+</head>
+<body class="agrupar">
+
+<section class="contenedor-campos">
+    <form id="frmregistrar" class="formulario" method="POST" action="registrar.php">
+<div class="field">
+
+    <label>Id</label>
+    <input type="number" class="input-text" required name="id">
+</div>
+
+    <label>Correo</label>
+    <input type="email" class="input-text" required name="txtcorreo">
+</div>
+
+<div class="field">
+    <label>Contraseña</label>
+    <input type="password" class="input-text" required name="txtpassword">
+</div>
+
+<div class="field">
+    <label> Nombre</label>
+    <input type="text" class="input-text" required name="txtnombre">
+</div>
+
+<div class="field">
+    <label> Estado</label>
+    <input type="text" class="input-text" required name="Estado">
+</div>
+
+<div class="field">
+    <label> Acceso identificador</label>
+    <input type="text" class="input-text" required name="identificador">
+</div>
+
+<div class="field">
+    <label>Acceso Hora</label>
+    <input type="time" class="input-text" required name="Hora">
+</div>
+
+<div class="field">
+    <label>Rol identificador</label>
+    <input type="text" class="input-text" required name="Rol">
+</div>
+
+<div class="field">
+    <label>Descripcion</label>
+    <input type="text" class="input-text" required name="Descripcion">
+</div>
+       
+    <div class="checkboxvai"><input type="checkbox"> Acepto los términos y condiciones de uso.</div>
+    <button type="submit" class="botons" name="btnregistrarx">Registrar</button>
+    <a href="informacion.php"><input class="botons" type="button" value="Cancelar"></a>
+</form>
+</section>
+ 
+
+
+    
+    
+    
+
+<div class="iconos">
+    <a class="boton1" href="informacion.php">
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-big-left" width="47" height="47" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FFFFFF" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+    <path d="M20 15h-8v3.586a1 1 0 0 1 -1.707 .707l-6.586 -6.586a1 1 0 0 1 0 -1.414l6.586 -6.586a1 1 0 0 1 1.707 .707v3.586h8a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1z" />
+  </svg>
+    </a>
+</div>
+
+
+<script src="js/crearUsario.js"></script>
+
+</body>
+</html>
+
+
+

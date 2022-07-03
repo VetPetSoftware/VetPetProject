@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Informacion</title>
 <style type="text/css">
-@import url("css/mycss.css");
+@import url("CSS/mycss.css");
 </style>
-<link rel="stylesheet" href="css/informacion.css">
+<link rel="stylesheet" href="CSS/informacion.css">
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
